@@ -2,3 +2,7 @@
 *.key  
 request
 claves_*
+request-loginCms.xml
+response-loginCms.xml
+TA.xml
+TRA.xml
