@@ -14,17 +14,13 @@ date_default_timezone_set('America/Argentina/Buenos_Aires');
 
 $SERVICIO = "FECAEAConsultar";
 
-$TA = simplexml_load_file("../../WSAA/TA.xml");
+$TA = simplexml_load_file("../WSAA/TA.xml");
 
 $DESTINATION = $TA->header->destination;
 $TOKEN = $TA->credentials->token;
 $SIGN = $TA->credentials->sign;
 
-$CUIT = explode(' ', 
-          explode('=',
-            explode(',', $DESTINATION)[2]
-          )[1]
-        )[1];
+$CUIT = explode(' ',current(explode(',', current($DESTINATION))))[1];
 
 $AUTH  =  "<Auth>";
 $AUTH .=    "<Token>$TOKEN</Token>";
